@@ -7,11 +7,14 @@ import os
 import sqlite3
 from utils.sm2 import update_sm2
 from datetime import datetime
+from dotenv import load_dotenv 
+load_dotenv()
+
 
 app = Flask(__name__)
 
-line_bot_api = LineBotApi(os.getenv("LINE_CHANNEL_ACCESS_TOKEN"))
-handler = WebhookHandler(os.getenv("LINE_CHANNEL_SECRET"))
+line_bot_api = LineBotApi(os.getenv("CHANNEL_ACCESS_TOKEN"))
+handler = WebhookHandler(os.getenv("CHANNEL_SECRET"))
 
 db_path = os.path.join(os.path.dirname(__file__), 'vocabulary.db')
 
